@@ -1,11 +1,11 @@
-package cat.institutmarianao.repository.impl;
+package cat.institutmarianao.tickets.repository.impl;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import cat.institutmarianao.domain.Show;
-import cat.institutmarianao.repository.ShowRepository;
+import cat.institutmarianao.tickets.domain.Show;
+import cat.institutmarianao.tickets.repository.ShowRepository;
 
 public class InMemoryShowRepository implements ShowRepository {
 

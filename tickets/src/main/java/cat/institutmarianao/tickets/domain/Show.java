@@ -1,4 +1,4 @@
-package cat.institutmarianao.domain;
+package cat.institutmarianao.tickets.domain;
 
 import java.io.Serializable;
 import java.util.Objects;

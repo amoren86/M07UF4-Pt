@@ -1,8 +1,8 @@
-package cat.institutmarianao.repository;
+package cat.institutmarianao.tickets.repository;
 
 import java.util.Collection;
 
-import cat.institutmarianao.domain.Show;
+import cat.institutmarianao.tickets.domain.Show;
 
 public interface ShowRepository {
 	Collection<Show> getAllShows();

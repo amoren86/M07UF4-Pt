@@ -4,10 +4,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cat.institutmarianao</groupId>
-	<artifactId>tickets</artifactId>
+	<artifactId>tickets.webclient</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>tickets</name>
+	<version>1.0-SNAPSHOT</version>
+	<name>tickets-webclient</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,11 +15,17 @@
 	</properties>
 
 	<dependencies>
-		<!-- Simple log4java -->
+		<!-- Spring -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>2.0.7</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>5.3.15</version>
+		</dependency>
+		<!-- JSTL -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 		<!-- J2EE implementation -->
 		<dependency>
@@ -50,6 +56,11 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 		<pluginManagement>
 			<plugins>
 				<!-- Maven war -->
@@ -69,13 +80,18 @@
 					</configuration>
 				</plugin>
 				<!-- JAXWS -->
-				<!--Execute mvn clean install jaxws:wsgen to generate service artifacts -->
+				<!--Execute mvn clean jaxws:wsimport to generate service artifacts -->
 				<plugin>
 					<groupId>com.sun.xml.ws</groupId>
 					<artifactId>jaxws-maven-plugin</artifactId>
 					<version>2.3.3</version>
 					<configuration>
-						<sei>cat.institutmarianao.tickets.service.impl.TicketServiceEndpointImpl</sei>
+						<wsdlUrls>
+							<wsdlUrl>
+								http://localhost:8080/tickets/TicketService?wsdl</wsdlUrl>
+						</wsdlUrls>
+						<keep>true</keep>
+						<packageName>cat.institutmarianao.tickets.webclient.jaxws</packageName>
 						<sourceDestDir>src/main/java</sourceDestDir>
 					</configuration>
 				</plugin>
